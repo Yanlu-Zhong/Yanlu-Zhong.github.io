@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yanlu Zhong — Academic Website Preview</title>
+<style>
+:root{
+  --bg:#ffffff;
+  --ink:#151515;
+  --muted:#55524c;
+  --light:#8a847a;
+  --line:#e7e1d7;
+  --soft:#f7f4ee;
+  --link:#2d5f8b;
+  --abstract:#2563eb;
+  --abstract-bg:#f5f8ff;
+  --abstract-line:#c9d8ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height:1.7}
+a{color:var(--link); text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{width:min(920px, calc(100vw - 36px)); margin:0 auto}
+.top{padding:34px 0 12px}
+.inline-links{display:flex; flex-wrap:wrap; gap:14px; margin:0 0 18px; font-size:14px}
+.inline-links a, .inline-links span{color:var(--light)}
+h1{font-family:Georgia, 'Times New Roman', serif; font-size:52px; font-weight:500; line-height:1; margin:0 0 18px; letter-spacing:-.04em}
+.intro{font-size:18px; color:#2f2c28; margin:0 0 14px}
+.bio{color:var(--muted); margin:0 0 14px}
+.section{padding:26px 0 8px}
+.section h2{font-family:Georgia, 'Times New Roman', serif; font-size:30px; font-weight:500; margin:0 0 12px}
+.section p.section-note{margin:0 0 14px; color:var(--muted)}
+.divider{height:1px; background:var(--line); margin:22px 0}
+.news-list{list-style:none; padding:0; margin:0}
+.news-list li{display:grid; grid-template-columns:78px 1fr; gap:12px; padding:10px 0; border-bottom:1px solid var(--line)}
+.news-list li:last-child{border-bottom:0}
+.news-date{color:#796f61; font-weight:700; font-size:14px}
+.news-text{color:#332f2a}
+.news-text .label{color:var(--light); margin-top:2px; font-size:13px}
+.direction-list{display:grid; gap:10px; padding:0; margin:0; list-style:none}
+.direction-list li{padding:12px 0; border-bottom:1px solid var(--line)}
+.direction-list li:last-child{border-bottom:0}
+.direction-list strong{display:block; font-size:17px; color:#27241f; margin-bottom:4px}
+.direction-list span{color:var(--muted); display:block; margin-bottom:10px}
+.project-tags{display:flex; flex-wrap:wrap; gap:8px}
+.project-tags a{display:inline-flex; align-items:center; font-size:12px; line-height:1.3; border:1px solid var(--line); background:var(--soft); color:#5b5348; border-radius:999px; padding:5px 9px; text-decoration:none}
+.project-tags a:hover{background:#f1ece4}
+.projects{display:grid; gap:18px}
+.project-item{display:grid; grid-template-columns:170px 1fr; gap:18px; align-items:start; padding:12px 0 18px; border-bottom:1px solid var(--line)}
+.project-item:last-child{border-bottom:0}
+.project-thumb img{width:100%; aspect-ratio:1 / 1; object-fit:cover; border-radius:16px; border:1px solid var(--line); background:#f6f3ed}
+.project-content h3{font-family:Georgia, 'Times New Roman', serif; font-size:28px; line-height:1.18; font-weight:500; margin:0 0 8px}
+.project-content p{margin:0 0 10px; color:var(--muted)}
+.paperline{font-size:14px; color:#423d37}
+.paperline span{color:var(--light); font-weight:600; margin-right:6px}
+.tags{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 12px}
+.tag{display:inline-flex; align-items:center; font-size:12px; line-height:1.3; border:1px solid var(--line); background:var(--soft); color:#5b5348; border-radius:999px; padding:5px 9px}
+.abstract-box{margin:8px 0 14px; border:1px solid var(--abstract-line); border-radius:12px; background:var(--abstract-bg); overflow:hidden}
+.abstract-box summary{list-style:none; cursor:pointer; padding:10px 14px; font-size:14px; color:var(--abstract); font-weight:700; display:flex; align-items:center; gap:8px}
+.abstract-box summary::-webkit-details-marker{display:none}
+.summary-icon{display:inline-flex; transition:transform .18s ease; color:var(--abstract); font-size:13px; line-height:1}
+.abstract-box[open] .summary-icon{transform:rotate(90deg)}
+.abstract-box summary:hover{background:#eef4ff}
+.abstract-text{padding:0 14px 14px 35px; color:var(--muted); font-size:14px; line-height:1.75}
+.links{display:flex; gap:10px; flex-wrap:wrap}
+.project-link{display:inline-flex; align-items:center; justify-content:center; padding:9px 14px; border-radius:999px; border:1px solid #c6b9a7; background:#fff; color:#26221d; font-size:14px; text-decoration:none}
+.project-link:hover{background:#faf7f1; text-decoration:none}
+.footer{padding:34px 0 54px; color:var(--light); font-size:14px}
+.anchor{scroll-margin-top:24px}
+@media (max-width:680px){
+  h1{font-size:42px}
+  .project-item{grid-template-columns:1fr}
+  .news-list li{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="top anchor" id="about">
+      <div class="inline-links">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+      </div>
+      <h1>Yanlu Zhong</h1>
+      <p class="intro">I am a Ph.D. candidate at the University of California, Santa Barbara, working at the intersection of psycholinguistics, computational linguistics, and human-grounded AI.</p>
+      <p class="bio">My research examines how language is represented, learned, and evaluated across human cognition and AI systems. I focus on statistical learning and affective meaning, combining psycholinguistic experiments, eye-tracking, EEG, corpus analysis, and large language model evaluation.</p>
+      <p class="bio">Long-term, I aim to connect cognitive models of the human mind with interpretable models of artificial intelligence, using evidence from one system to better understand the other.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section anchor" id="news">
+      <h2>News</h2>
+      <p class="section-note">Recent publications from the last two years.</p>
+      <ul class="news-list">
+        <li><div class="news-date">[2026]</div><div class="news-text"><a href="https://doi.org/10.1017/S0142716426100630" target="_blank" rel="noopener">The processing advantage of emotion words in L1 speakers and L2 speakers: A meta-analysis.</a><div class="label">Affective Evidence Synthesis</div></div></li><li><div class="news-date">[2025]</div><div class="news-text"><a href="https://doi.org/10.3758/s13428-025-02633-2" target="_blank" rel="noopener">Affective and non-affective psycholinguistic norms for 500 Chinese three-character idiomatic expressions.</a><div class="label">Affective Norming Data</div></div></li><li><div class="news-date">[2025]</div><div class="news-text"><a href="https://doi.org/10.1017/S0272263125101411" target="_blank" rel="noopener">Metacognition of frequency, directional association strength, and dispersion of MWEs in first and second language speakers.</a><div class="label">Human Statistical Metacognition</div></div></li><li><div class="news-date">[2025]</div><div class="news-text"><a href="https://doi.org/10.1016/j.rmal.2025.100274" target="_blank" rel="noopener">Evaluating LLMs as Proxies for Humans in Psycholinguistic Ratings.</a><div class="label">LLM Statistical Knowledge Evaluation</div></div></li><li><div class="news-date">[2025]</div><div class="news-text"><a href="https://doi.org/10.1111/lang.70053" target="_blank" rel="noopener">Multilevel statistical and linguistic information in L2 VPC production.</a><div class="label">Corpus-Based Modeling of Human Production</div></div></li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section anchor" id="research">
+      <h2>Research</h2>
+      <ul class="direction-list">
+        <li><strong>Human Language Cognition</strong><span>Hierarchical representation, temporal dynamics, prediction, and individual differences in language processing.</span><div class="project-tags"><a href="#project-dynamic-cognitive-modeling">Dynamic Cognitive Modeling</a><a href="#project-attention-tracking-analysis">Attention-Tracking Analysis</a><a href="#project-individual-difference-modeling">Individual-Difference Modeling</a><a href="#project-sem-based-idiom-cue-integration">SEM-Based Idiom Cue Integration</a><a href="#project-human-statistical-metacognition">Human Statistical Metacognition</a><a href="#project-meta-analytic-modeling-of-human-perception">Meta-Analytic Modeling of Human Perception</a></div></li><li><strong>Statistical Learning</strong><span>Frequency, contingency, association strength, dispersion, and predictability in humans and AI systems.</span><div class="project-tags"><a href="#project-llm-statistical-knowledge-evaluation">LLM Statistical Knowledge Evaluation</a><a href="#project-human-statistical-metacognition">Human Statistical Metacognition</a><a href="#project-corpus-based-modeling-of-human-production">Corpus-Based Modeling of Human Production</a><a href="#project-affectsl-probe">AffectSL-Probe</a><a href="#project-meta-analytic-modeling-of-human-perception">Meta-Analytic Modeling of Human Perception</a><a href="#project-sem-based-idiom-cue-integration">SEM-Based Idiom Cue Integration</a></div></li><li><strong>Human-Centered Affective AI</strong><span>Emotion-aware language understanding, affective signal modeling, conversational adaptation, and safety-sensitive response behavior in human-AI interaction.</span><div class="project-tags"><a href="#project-abound-affective-boundary-control">ABOUND: Affective Boundary Control</a><a href="#project-affectsl-probe">AffectSL-Probe</a><a href="#project-neuroaffect-bert">NeuroAffect-BERT</a><a href="#project-affective-evidence-synthesis">Affective Evidence Synthesis</a><a href="#project-affective-norming-data">Affective Norming Data</a><a href="#project-attention-tracking-analysis">Attention-Tracking Analysis</a></div></li><li><strong>LLM Behavior, Alignment, and Evaluation</strong><span>Human-grounded benchmarking, model-human divergence analysis, safety-boundary diagnostics, behavioral evaluation, and interpretable model assessment.</span><div class="project-tags"><a href="#project-abound-affective-boundary-control">ABOUND: Affective Boundary Control</a><a href="#project-llm-statistical-knowledge-evaluation">LLM Statistical Knowledge Evaluation</a><a href="#project-affectsl-probe">AffectSL-Probe</a><a href="#project-neuroaffect-bert">NeuroAffect-BERT</a></div></li><li><strong>Machine Learning for Language and Behavior</strong><span>Feature engineering, supervised learning, representation analysis, predictive modeling, and model diagnostics for language and behavioral data.</span><div class="project-tags"><a href="#project-affectsl-probe">AffectSL-Probe</a><a href="#project-neuroaffect-bert">NeuroAffect-BERT</a><a href="#project-affective-evidence-synthesis">Affective Evidence Synthesis</a><a href="#project-affective-norming-data">Affective Norming Data</a><a href="#project-sem-based-idiom-cue-integration">SEM-Based Idiom Cue Integration</a><a href="#project-individual-difference-modeling">Individual-Difference Modeling</a><a href="#project-corpus-based-modeling-of-human-production">Corpus-Based Modeling of Human Production</a></div></li><li><strong>Multimodal Cognitive Data Modeling</strong><span>Behavioral, eye-tracking, EEG, conversation, and time-series data analysis for modeling human language processing.</span><div class="project-tags"><a href="#project-neuroaffect-bert">NeuroAffect-BERT</a><a href="#project-attention-tracking-analysis">Attention-Tracking Analysis</a><a href="#project-dynamic-cognitive-modeling">Dynamic Cognitive Modeling</a><a href="#project-affectsl-probe">AffectSL-Probe</a><a href="#project-individual-difference-modeling">Individual-Difference Modeling</a><a href="#project-sem-based-idiom-cue-integration">SEM-Based Idiom Cue Integration</a></div></li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section anchor" id="projects">
+      <h2>Projects</h2>
+      <p class="section-note">A project-centered view of the research portfolio. Each Project button links directly to the corresponding GitHub repository.</p>
+      <div class="projects">
+        
+    <article class="project-item anchor" id="project-abound-affective-boundary-control">
+      <div class="project-thumb"><img src="assets/gifs/abound-affective-boundary-control.gif" alt="Preview image for ABOUND: Affective Boundary Control" loading="lazy"></div>
+      <div class="project-content">
+        <h3>ABOUND: Affective Boundary Control</h3>
+        <p class="one">A staged affect-boundary mediation framework for deciding when emotional context should shape content, tone, safety behavior, or refusal in LLM assistance.</p>
+        <p class="paperline"><span>Paper.</span> When Should Emotion Matter? Affect-Boundary Mediation for LLM Assistance</p>
+        <div class="tags"><span class="tag">Human-Centered Affective AI</span><span class="tag">LLM Behavior, Alignment, and Evaluation</span><span class="tag">Machine Learning for Language and Behavior</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">Emotionally rich context can help LLM assistants respond with appropriate tone, but it can also be stale, private, irrelevant, or used to pressure unsafe behavior. We frame this as affective influence control: deciding whether detected affect may influence response content, response tone, neither, or a refusal decision. We introduce ABOUND, a staged affect-boundary mediation framework that separates boundary-policy selection, response realization, and policy-conditioned refusal realization. Across a 600-example diagnostic benchmark, ABOUND improves the task-safety trade-off across Qwen2.5-0.5B, 1.5B, and 7B models relative to direct, emotion-aware, emotion-filtering, strong single-stage policy, and matched multi-step policy baselines. On Qwen2.5-7B, the complete ABOUND system improves task quality from 0.678 to 0.830 and safety-boundary retention from 0.140 to 1.000 relative to the strong policy baseline. Cross-family, ablation, robustness, out-of-template, and blinded human-validation results support evaluating affect-aware assistance as boundary control rather than emotion amplification or filtering.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/Contextual-LLM-Boundary-Evaluation" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>
+    
+    <article class="project-item anchor" id="project-llm-statistical-knowledge-evaluation">
+      <div class="project-thumb"><img src="assets/gifs/llm-statistical-knowledge-evaluation.gif" alt="Preview image for LLM Statistical Knowledge Evaluation" loading="lazy"></div>
+      <div class="project-content">
+        <h3>LLM Statistical Knowledge Evaluation</h3>
+        <p class="one">A human-grounded evaluation of whether LLMs can approximate human statistical judgments of English binomials without replacing human ratings.</p>
+        <p class="paperline"><span>Paper.</span> <a href="https://doi.org/10.1016/j.rmal.2025.100274" target="_blank" rel="noopener">Evaluating LLMs as Proxies for Humans in Psycholinguistic Ratings</a></p>
+        <div class="tags"><span class="tag">Statistical Learning</span><span class="tag">LLM Behavior, Alignment, and Evaluation</span><span class="tag">Machine Learning for Language and Behavior</span><span class="tag">Human Language Cognition</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">Psycholinguistic research has traditionally relied on human ratings for stimulus norming, but whether large language models (LLMs) can reliably replace human ratings remains uncertain. This study compares human participants and three LLMs—one proprietary model (ChatGPT-4o) and two open-source models (LLaMA-3.3–70B and DeepSeek-V3)—with respect to their statistical knowledge of English binomials. For each binomial, we obtained ratings of frequency, dispersion, forward association strength, and backward association strength from 34 human participants and from 30 output samples per LLM. We examined rating-to-corpus consistency, the sensitivity of statistical ratings to corpus data, and the influence of other psycholinguistic factors on ratings. LLMs’ statistical knowledge broadly mirrored that of humans. Ratings from both groups were sensitive to corpus data but not fully consistent with it. Frequency showed the highest rating-to-corpus consistency, whereas dispersion showed the lowest consistency and the weakest sensitivity. LLM ratings were also influenced by word-level cues. Nonetheless, LLM ratings showed greater corpus consistency, heightened sensitivity, and stronger reliance on other psycholinguistic cues than human ratings. Overall, while LLMs’ performance generally aligned with that of humans, their internal statistical representations differed significantly from human cognition. The three LLMs also showed variation in their rating behavior. Thus, although multi-LLM ratings can aid pilot studies in psycholinguistics, they should not replace human ratings in formal experiments.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/Human-LLM-Statistical-Alignment" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>
+    
+    <article class="project-item anchor" id="project-affectsl-probe">
+      <div class="project-thumb"><img src="assets/gifs/affectsl-probe.gif" alt="Preview image for AffectSL-Probe" loading="lazy"></div>
+      <div class="project-content">
+        <h3>AffectSL-Probe</h3>
+        <p class="one">A benchmark for testing whether model-derived predictability aligns with human reading behavior across affective contexts.</p>
+        <p class="paperline"><span>Paper.</span> AffectSL-Probe: A Human-Grounded Benchmark for Evaluating Affect-Modulated Predictability in Language Models</p>
+        <div class="tags"><span class="tag">LLM Behavior, Alignment, and Evaluation</span><span class="tag">Human-Centered Affective AI</span><span class="tag">Statistical Learning</span><span class="tag">Machine Learning for Language and Behavior</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">Human-grounded evaluation of language models increasingly examines whether model-derived predictability captures aspects of human incremental language processing. However, most existing evaluations focus on aggregate surprisal effects, leaving open whether model predictability aligns with human behavior in contextually variable ways. In particular, little is known about whether surprisal-based alignment changes across affective contexts, even though emotional meaning is a central part of natural language comprehension. We introduce AffectSL-Probe, a benchmark and evaluation protocol for testing affect-modulated statistical predictability in language models without attributing emotional states to the models themselves. AffectSL-Probe integrates public reading-time data, contextual valence-arousal-dominance features, and word-level language-model surprisal to evaluate three complementary forms of alignment. First, baseline predictability alignment tests whether model surprisal explains human reading behavior beyond lexical, positional, and tokenization-related controls. Second, affective modulation alignment tests whether the relationship between surprisal and reading behavior is systematically moderated by contextual valence and arousal within an explicit psycholinguistic model. Third, shortcut robustness uses perturbation and control analyses to distinguish affect-sensitive predictability from lexical, topical, or annotation-based artifacts. We instantiate the benchmark using Natural Stories reading-time data, GPT-2 surprisal, and NRC VAD affective features. The results show that aggregate surprisal alignment and affect-modulated surprisal alignment are separable diagnostic targets: a model may show general predictability effects while still varying in how those effects relate to human processing across affective contexts. AffectSL-Probe provides a human-grounded framework for evaluating language models beyond perplexity-like metrics, contributing a context-sensitive diagnostic approach for studying the cognitive plausibility and interpretability of language-model predictability.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/affective-reading-surprisal" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>
+    
+    <article class="project-item anchor" id="project-neuroaffect-bert">
+      <div class="project-thumb"><img src="assets/gifs/neuroaffect-bert.gif" alt="Preview image for NeuroAffect-BERT" loading="lazy"></div>
+      <div class="project-content">
+        <h3>NeuroAffect-BERT</h3>
+        <p class="one">A multimodal natural-reading project linking BERT-derived affective estimates with EEG and pupillometry during Chinese reading.</p>
+        <p class="paperline"><span>Paper.</span> NeuroAffect-BERT: Modeling Affective Language Comprehension in Natural Reading</p>
+        <div class="tags"><span class="tag">Multimodal Cognitive Data Modeling</span><span class="tag">Human-Centered Affective AI</span><span class="tag">Machine Learning for Language and Behavior</span><span class="tag">LLM Behavior, Alignment, and Evaluation</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">Emotional meaning in language emerges from both local lexical properties and the broader discourse context in which words are interpreted. However, relatively little is known about how lexical and contextual affective information jointly shapes neural and physiological responses during natural reading, especially in Chinese. The present study combined human norming, Chinese BERT-based regression modeling, EEG, and pupillometry to examine how affective, semantic, and statistical information contributes to online comprehension. Native Mandarin speakers provided ratings of two-character lexical combinations on valence, arousal, concreteness, and imageability, as well as sentence-level ratings of contextual valence and arousal. These ratings were used to train Chinese BERT-based models, which generated large-scale estimates for target words and their preceding discourse contexts in the ChineseEEG natural reading corpus. Linear mixed-effects models were then fitted to ERP amplitudes indexing early affective attention (EPN), semantic access and contextual integration (N400), and later evaluative processing (LPP), together with pupil size as an index of autonomic arousal and processing effort. Results showed that EPN amplitudes were associated with mutual information and the interaction between contextual valence and contextual arousal. N400 amplitudes were modulated by lexical valence, lexical arousal, frequency, and interactions between affective and statistical variables. LPP amplitudes showed sustained sensitivity to lexical arousal and interactions involving lexical valence, frequency, mutual information, and imageability. Pupil size was predicted by the interaction between lexical arousal and lexical valence, as well as by contextual arousal interacting with mutual information. These findings suggest that affective language comprehension during natural reading is not driven by word-level emotion alone, but reflects temporally distributed interactions among local affect, global discourse affect, semantic representation, and distributional structure.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/Multimodal-Natural-Reading-BERT" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>
+    
+    <article class="project-item anchor" id="project-human-statistical-metacognition">
+      <div class="project-thumb"><img src="assets/gifs/human-statistical-metacognition.gif" alt="Preview image for Human Statistical Metacognition" loading="lazy"></div>
+      <div class="project-content">
+        <h3>Human Statistical Metacognition</h3>
+        <p class="one">A study of how L1 and L2 speakers estimate frequency, dispersion, and association strength for multiword expressions.</p>
+        <p class="paperline"><span>Paper.</span> <a href="https://doi.org/10.1017/S0272263125101411" target="_blank" rel="noopener">Metacognition of frequency, directional association strength, and dispersion of MWEs in first and second language speakers</a></p>
+        <div class="tags"><span class="tag">Human Language Cognition</span><span class="tag">Statistical Learning</span><span class="tag">Machine Learning for Language and Behavior</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">Statistical regularities can be acquired from usage. To examine language speakers’ statistical metacognition about multiword expressions (MWEs), we collected ratings for frequency, dispersion, and directional association strength of English binomials from L1, advanced and intermediate L2 speakers. Mixed-effects modeling showed all speakers had limited speaker-to-corpus consistency but significant sensitivity to statistical regularities of language, supporting usage-based and statistical learning theories. Their statistical metacognition was also shaped by word-level cues, consistent with dual-route accounts. Despite similarities, frequency metacognition showed the strongest speaker-to-corpus consistency, while dispersion metacognition was the hardest to develop. Advanced L2 speakers showed the greatest speaker-to-corpus consistency and sensitivity, while lower-proficiency speakers relied more on word-level cues in metacognitive judgments. Overall, L1 and L2 speakers develop diverse statistical metacognition, with L2 speakers not necessarily inferior, suggesting that statistical metacognition is not solely shaped by usage-based experience.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/MWE-Statistical-Metacognition" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>
+    
+    <article class="project-item anchor" id="project-affective-evidence-synthesis">
+      <div class="project-thumb"><img src="assets/gifs/affective-evidence-synthesis.gif" alt="Preview image for Affective Evidence Synthesis" loading="lazy"></div>
+      <div class="project-content">
+        <h3>Affective Evidence Synthesis</h3>
+        <p class="one">A meta-analysis of emotion-word processing advantages across L1, advanced L2, and intermediate L2 speakers.</p>
+        <p class="paperline"><span>Paper.</span> <a href="https://doi.org/10.1017/S0142716426100630" target="_blank" rel="noopener">The processing advantage of emotion words in L1 speakers and L2 speakers: A meta-analysis</a></p>
+        <div class="tags"><span class="tag">Human-Centered Affective AI</span><span class="tag">Human Language Cognition</span><span class="tag">Machine Learning for Language and Behavior</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">This meta-analysis synthesized 88 studies to investigate the processing advantages of emotion words over neutral words. We explored the moderating effects of emotional properties, linguistic factors, and task type in L1, advanced L2, and intermediate L2 speakers. We found a significant valence effect, with positive words showing a greater processing advantage than negative words only in L1 speakers. For arousal, the interaction analysis revealed that high arousal reduced the processing advantage of emotion words to a greater extent in intermediate L2 speakers than in L1 speakers. Only advanced L2 speakers showed a significant processing advantage for emotion-label words compared to emotion-laden words. Linguistic factors and task type also moderated emotion-word processing in ways that varied by proficiency group. Overall, the findings support theoretical frameworks in both L1 and L2 processing and cognition.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/Emotion-Processing-Meta-ML" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>
+    
+    <article class="project-item anchor" id="project-affective-norming-data">
+      <div class="project-thumb"><img src="assets/gifs/affective-norming-data.gif" alt="Preview image for Affective Norming Data" loading="lazy"></div>
+      <div class="project-content">
+        <h3>Affective Norming Data</h3>
+        <p class="one">A large-scale normative database linking affective and non-affective psycholinguistic dimensions in Chinese idiomatic expressions.</p>
+        <p class="paperline"><span>Paper.</span> <a href="https://doi.org/10.3758/s13428-025-02633-2" target="_blank" rel="noopener">Affective and non-affective psycholinguistic norms for 500 Chinese three-character idiomatic expressions</a></p>
+        <div class="tags"><span class="tag">Human-Centered Affective AI</span><span class="tag">Human Language Cognition</span><span class="tag">Machine Learning for Language and Behavior</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">Multiword expressions, especially idiomatic expressions, convey rich emotional information. To explore the relationship between affective and non-affective psycholinguistic dimensions in the processing of idiomatic expressions, we collected normative data for two affective variables—valence and arousal—and four non-affective variables—familiarity, transparency, ambiguity, and age of acquisition—for 500 Chinese three-character idiomatic expressions, based on responses from 418 native Chinese speakers. The results showed a quadratic U-shaped relationship between valence and arousal, with neutral idiomatic expressions rated as less arousing than negative or positive ones. Transparent idiomatic expressions were more strongly valenced and more arousing. Idioms more often used figuratively evoked more negative or stronger emotional responses. The dataset provides a foundation for examining affective and non-affective psycholinguistic factors in Chinese idiom processing and sheds light on the interrelated cognitive mechanisms underlying figurative language processing and emotion.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/Chinese-Idiom-Affectnorms-ML" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>
+    
+    <article class="project-item anchor" id="project-sem-based-idiom-cue-integration">
+      <div class="project-thumb"><img src="assets/gifs/sem-based-idiom-cue-integration.gif" alt="Preview image for SEM-Based Idiom Cue Integration" loading="lazy"></div>
+      <div class="project-content">
+        <h3>SEM-Based Idiom Cue Integration</h3>
+        <p class="one">A PLS-SEM and drift-rate modeling project on how emotional and statistical cues jointly shape idiom-processing advantage.</p>
+        <p class="paperline"><span>Paper.</span> Multifaceted Emotional Effects on Drift-Rate-Based Idiom Processing Advantage in L1 and L2 Speakers: A PLS-SEM Approach</p>
+        <div class="tags"><span class="tag">Human Language Cognition</span><span class="tag">Human-Centered Affective AI</span><span class="tag">Machine Learning for Language and Behavior</span><span class="tag">Multimodal Cognitive Data Modeling</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">Idioms are non-compositional multiword expressions that often carry strong emotional connotations. Like other multiword expressions, idioms exhibit a robust processing advantage. To investigate how emotional and statistical properties contribute to this advantage, we conducted a phrase judgment task with L1 and L2 English speakers. Two complementary modeling approaches were used: Bayesian hierarchical drift diffusion modeling to capture processing dynamics, and partial least squares structural equation modeling to examine direct and indirect effects of multiple predictors. We focused on how valence and arousal shape idiom processing both independently and through their interaction with linguistic representation, literal plausibility, and statistical regularities. Results revealed a consistent idiom processing advantage, modulated by emotional factors, linguistic representation, and usage-based statistics. Crucially, emotional variables moderated the influence of linguistic and statistical cues, highlighting a dynamic, layered interplay within the mental lexicon.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/Decision-Dynamics-SEM" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>
+    
+    <article class="project-item anchor" id="project-individual-difference-modeling">
+      <div class="project-thumb"><img src="assets/gifs/individual-difference-modeling.gif" alt="Preview image for Individual-Difference Modeling" loading="lazy"></div>
+      <div class="project-content">
+        <h3>Individual-Difference Modeling</h3>
+        <p class="one">A Bayesian multilevel modeling study of how individual psycholinguistic profiles predict idiom-processing advantages.</p>
+        <p class="paperline"><span>Paper.</span> Individual Differences in Speakers’ Perceptions of Psycholinguistic Dimensions: Modeling Idiom Processing Advantage in a Phrase Judgment Task among L1 and L2 Speakers</p>
+        <div class="tags"><span class="tag">Human Language Cognition</span><span class="tag">Machine Learning for Language and Behavior</span><span class="tag">Multimodal Cognitive Data Modeling</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">This study investigates whether individual differences in psycholinguistic profiles—familiarity, knowledge, compositionality, ambiguity, valence, and arousal—predict idiom-processing advantages in L1 and L2 speakers in a phrase judgment task. Bayesian multilevel models showed that group-average familiarity, valence, and arousal facilitated idiom processing in both groups, whereas compositionality and ambiguity had inhibitory effects. Beyond item means, participant-specific deviations predicted processing advantage. In both groups, individuals who rated an idiom as more positive and more ambiguous than its item-mean norm showed a larger idiom processing advantage. In contrast, only among L2 speakers, individuals who rated an idiom as more compositional than its norm showed a larger advantage. Overall, individual-level modeling of experience-based psycholinguistic cues, beyond group norms, reveals finer-grained L1-L2 differences in the mechanisms underlying language processing.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/Individual-Difference-Idiom-Processing" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>
+    
+    <article class="project-item anchor" id="project-attention-tracking-analysis">
+      <div class="project-thumb"><img src="assets/gifs/attention-tracking-analysis.gif" alt="Preview image for Attention-Tracking Analysis" loading="lazy"></div>
+      <div class="project-content">
+        <h3>Attention-Tracking Analysis</h3>
+        <p class="one">A visual-world eye-tracking project on real-time figurative and literal activation in Chinese idiom processing.</p>
+        <p class="paperline"><span>Paper.</span> Figurative-Literal Activation in Chinese Idiom Online Processing by L1 Speakers and Heritage Learners Across Emotional, Semantic, and Statistical Cues</p>
+        <div class="tags"><span class="tag">Human Language Cognition</span><span class="tag">Multimodal Cognitive Data Modeling</span><span class="tag">Human-Centered Affective AI</span><span class="tag">Statistical Learning</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">Idioms are central to natural language, yet their figurative meanings extend beyond their constituent words. Using visual-world eye-tracking, this study examined how figurative and literal meanings of Chinese three-character idioms are activated and integrated over time, and how local and global linguistic cues shape this process in first-language speakers and heritage language learners. During early prediction, only L1 speakers showed robust figurative activation, whereas all groups showed literal activation. Compositionality, metaphoricity, forward association, valence, and arousal showed group-specific effects, often with stronger modulation in L1 speakers and U-shaped heritage patterns. During late integration, only L1 speakers showed a positive figurative-to-literal effect, with item-level factors again varying by group. These findings show that idiom prediction and integration are dynamically shaped by linguistic experience and multi-level cues.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/VWP-Timeseries-Dynamic-Activation" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>
+    
+    <article class="project-item anchor" id="project-dynamic-cognitive-modeling">
+      <div class="project-thumb"><img src="assets/gifs/dynamic-cognitive-modeling.gif" alt="Preview image for Dynamic Cognitive Modeling" loading="lazy"></div>
+      <div class="project-content">
+        <h3>Dynamic Cognitive Modeling</h3>
+        <p class="one">A time-series model comparison project testing direct access, configuration, and constraint-based race accounts of idiom comprehension.</p>
+        <p class="paperline"><span>Paper.</span> Dynamic Constraint-Based Modeling of Spoken Idiom Processing: Time-Series Evidence from Visual-World Eye-Tracking</p>
+        <div class="tags"><span class="tag">Human Language Cognition</span><span class="tag">Multimodal Cognitive Data Modeling</span><span class="tag">Machine Learning for Language and Behavior</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">This study examined the real-time processing of Chinese three-character idioms in neutral, literal-biasing, and figurative-biasing contexts using a text-based visual world paradigm. To compare competing theories of idiom comprehension, we implemented three quantitative time-series models corresponding to direct access, the configuration hypothesis, and a constraint-based race account. We further assessed how context and idiom-level properties shaped two dynamic indices of semantic competition: peak advantage and peak latency advantage. Across condition-, subject-, and item-level analyses, the constraint-based race model provided the most robust overall account of the data. These findings support a view of idiom comprehension as a dynamic multi-constraint process rather than as single-route retrieval or a fixed stage-based shift.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/Attention-Model-Comparison-Meaning-Activations" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>
+    
+    <article class="project-item anchor" id="project-corpus-based-modeling-of-human-production">
+      <div class="project-thumb"><img src="assets/gifs/corpus-based-modeling-of-human-production.gif" alt="Preview image for Corpus-Based Modeling of Human Production" loading="lazy"></div>
+      <div class="project-content">
+        <h3>Corpus-Based Modeling of Human Production</h3>
+        <p class="one">A corpus-based study of how frequency and contingency measures shape L2 verb-particle construction production across proficiency levels.</p>
+        <p class="paperline"><span>Paper.</span> <a href="https://doi.org/10.1111/lang.70053" target="_blank" rel="noopener">Multilevel statistical and linguistic information in L2 VPC production</a></p>
+        <div class="tags"><span class="tag">Statistical Learning</span><span class="tag">Human Language Cognition</span><span class="tag">Machine Learning for Language and Behavior</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">This study explores how statistical properties of verb-particle constructions and their interplay in the target language shape L2 production across proficiency levels. We compared phrasal frequency and three contingency measures—mutual information, forward delta P, and backward delta P—of verb-particle constructions in a self-built L2 corpus of 649 Chinese learners with those in the British National Corpus. Mixed-effects models showed that usage-based distributional statistics in the target language predicted L2 production with complex patterns: statistical information was selectively encoded, acquisition was heterogeneous yet interdependent, word-level statistical and linguistic properties and construction type influenced production, contingency measures showed stronger associations with proficiency than frequency, and proficiency moderated the effects of word-level properties and construction type.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/Corpus-Statistical-Learning-VPC" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>
+    
+    <article class="project-item anchor" id="project-meta-analytic-modeling-of-human-perception">
+      <div class="project-thumb"><img src="assets/gifs/meta-analytic-modeling-of-human-perception.gif" alt="Preview image for Meta-Analytic Modeling of Human Perception" loading="lazy"></div>
+      <div class="project-content">
+        <h3>Meta-Analytic Modeling of Human Perception</h3>
+        <p class="one">A meta-analysis of the processing advantage of multiword sequences across statistical regularities and language background.</p>
+        <p class="paperline"><span>Paper.</span> <a href="https://doi.org/10.1017/S0272263123000542" target="_blank" rel="noopener">Processing advantages of multiword sequences broken down by statistical regularities and language background</a></p>
+        <div class="tags"><span class="tag">Human Language Cognition</span><span class="tag">Statistical Learning</span><span class="tag">Machine Learning for Language and Behavior</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">This meta-analysis synthesized 35 English studies with 130 effect sizes and 1,981 participants that employed online tasks to investigate the processing of multiword sequences. We examined the extent to which multiword sequences enjoy a processing advantage over novel word combinations, how this advantage is moderated by statistical regularities, multiword sequence type, and task explicitness, and whether these patterns differ between L1 and L2 speakers. The results confirmed the processing advantage for most subtypes of multiword sequences, with effect sizes ranging from small to medium. For both L1 and L2 speakers, the processing advantage was found across the continuum of phrasal frequency and association strength. Task explicitness moderated the advantage only for L2 speakers. Taken together, the results shed light on multiword sequence processing and directions for future research.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/MWE-Statistical-Metacognition" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>
+    
+      </div>
+    </section>
+
+    <footer class="footer">© Yanlu Zhong · preview</footer>
+  </main>
+</body>
+</html>
