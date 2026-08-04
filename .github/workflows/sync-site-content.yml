@@ -1,0 +1,124 @@
+name: Sync website content
+
+on:
+  push:
+    paths:
+      - ".github/workflows/sync-site-content.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Restore ABOUND and add new project
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path("index.html")
+          html = path.read_text(encoding="utf-8")
+
+          # Restore the pre-existing ABOUND project card.
+          abound_pattern = r'(<article class="project-item anchor" id="project-abound-affective-boundary-control">)(.*?)(</article>)'
+          match = re.search(abound_pattern, html, flags=re.S)
+          if not match:
+              raise RuntimeError("Could not locate the ABOUND project card")
+
+          abound = match.group(2)
+          abound = re.sub(
+              r'<p class="one">.*?</p>',
+              '<p class="one">A staged affect-boundary mediation framework for deciding when emotional context should shape content, tone, safety behavior, or refusal in LLM assistance.</p>',
+              abound,
+              count=1,
+              flags=re.S,
+          )
+          abound = re.sub(
+              r'<div class="abstract-text">.*?</div>',
+              '<div class="abstract-text">Emotionally rich context can help LLM assistants respond with appropriate tone, but it can also be stale, private, irrelevant, or used to pressure unsafe behavior. We frame this as affective influence control: deciding whether detected affect may influence response content, response tone, neither, or a refusal decision. We introduce ABOUND, a staged affect-boundary mediation framework that separates boundary-policy selection, response realization, and policy-conditioned refusal realization. Across a 600-example diagnostic benchmark, ABOUND improves the task-safety trade-off across Qwen2.5-0.5B, 1.5B, and 7B models relative to direct, emotion-aware, emotion-filtering, strong single-stage policy, and matched multi-step policy baselines. On Qwen2.5-7B, the complete ABOUND system improves task quality from 0.678 to 0.830 and safety-boundary retention from 0.140 to 1.000 relative to the strong policy baseline. Cross-family, ablation, robustness, out-of-template, and blinded human-validation results support evaluating affect-aware assistance as boundary control rather than emotion amplification or filtering.</div>',
+              abound,
+              count=1,
+              flags=re.S,
+          )
+          abound = re.sub(
+              r'href="https://github.com/Yanlu-Zhong/(?:constraint-aware-generation-LLM|Contextual-LLM-Boundary-Evaluation)"',
+              'href="https://github.com/Yanlu-Zhong/Contextual-LLM-Boundary-Evaluation"',
+              abound,
+          )
+          html = html[:match.start()] + match.group(1) + abound + match.group(3) + html[match.end():]
+
+          # Add the separate constraint-aware generation project after ABOUND.
+          project_id = "project-constraint-aware-language-generation-evaluation"
+          if f'id="{project_id}"' not in html:
+              new_card = '''
+
+    <article class="project-item anchor" id="project-constraint-aware-language-generation-evaluation">
+      <div class="project-thumb"><img src="assets/gifs/constraint-aware-language-generation.svg" alt="Preview image for Constraint-Aware Language Generation and Evaluation" loading="lazy"></div>
+      <div class="project-content">
+        <h3>Constraint-Aware Language Generation and Evaluation</h3>
+        <p class="one">A reproducible framework for studying how linguistic, structural, and task constraints shape controllable text generation and model evaluation.</p>
+        <p class="paperline"><span>Research focus.</span> Controlled generation, human evaluation, and robustness analysis under explicit constraints.</p>
+        <div class="tags"><span class="tag">LLM Behavior, Alignment, and Evaluation</span><span class="tag">Machine Learning for Language and Behavior</span></div>
+        <details class="abstract-box">
+          <summary><span class="summary-icon">▸</span><span>Abstract</span></summary>
+          <div class="abstract-text">Controllable language generation requires models to satisfy multiple constraints without sacrificing fluency, coherence, or task relevance. This project develops a reproducible framework for examining how explicit linguistic, structural, and task constraints shape generated text. The workflow supports deterministic construction of paired experimental conditions, blinded human evaluation, automated quality assurance, paired statistical tests, cluster-bootstrap uncertainty estimates, cross-system comparisons, and lightweight text-classification baselines. The public repository is a publication-safe snapshot built with synthetic examples: it demonstrates the research design, statistical workflow, and engineering infrastructure while withholding manuscript-specific prompts, model outputs, human-subject materials, and empirical findings.</div>
+        </details>
+        <div class="links"><a class="project-link" href="https://github.com/Yanlu-Zhong/constraint-aware-generation-LLM" target="_blank" rel="noopener">Project</a></div>
+      </div>
+    </article>'''
+              restored = re.search(abound_pattern, html, flags=re.S)
+              if not restored:
+                  raise RuntimeError("Could not relocate the restored ABOUND card")
+              insert_at = restored.end()
+              html = html[:insert_at] + new_card + html[insert_at:]
+
+          new_anchor = '<a href="#project-constraint-aware-language-generation-evaluation">Constraint-Aware Language Generation and Evaluation</a>'
+          abound_anchor = '<a href="#project-abound-affective-boundary-control">ABOUND: Affective Boundary Control</a>'
+
+          def revise_category(document, category, add_anchor=None, remove_anchor=None):
+              marker = f'<li><strong>{category}</strong>'
+              start = document.find(marker)
+              if start == -1:
+                  raise RuntimeError(f"Could not locate research category: {category}")
+              end = document.find('</li>', start)
+              if end == -1:
+                  raise RuntimeError(f"Could not locate category boundary: {category}")
+              end += len('</li>')
+              section = document[start:end]
+              if remove_anchor:
+                  section = section.replace(remove_anchor, '')
+              if add_anchor and add_anchor not in section:
+                  section = section.replace('<div class="project-tags">', '<div class="project-tags">' + add_anchor, 1)
+              return document[:start] + section + document[end:]
+
+          html = revise_category(
+              html,
+              "LLM Behavior, Alignment, and Evaluation",
+              add_anchor=new_anchor,
+          )
+          html = revise_category(
+              html,
+              "Machine Learning for Language and Behavior",
+              add_anchor=new_anchor,
+              remove_anchor=abound_anchor,
+          )
+
+          path.write_text(html, encoding="utf-8")
+          PY
+
+      - name: Commit website correction
+        run: |
+          if git diff --quiet; then
+            echo "No changes were needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Restore ABOUND and add constraint-aware generation project"
+          git push
