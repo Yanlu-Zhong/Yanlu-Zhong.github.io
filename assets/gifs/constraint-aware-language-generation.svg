@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="720" viewBox="0 0 720 720" role="img" aria-labelledby="title desc">
+  <title id="title">Constraint-Aware Language Generation and Evaluation</title>
+  <desc id="desc">A diagram showing constraints guiding language generation and evaluation.</desc>
+  <rect width="720" height="720" rx="72" fill="#f7f4ee"/>
+  <rect x="78" y="118" width="220" height="112" rx="28" fill="#ffffff" stroke="#c6b9a7" stroke-width="4"/>
+  <text x="188" y="163" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#332f2a">Linguistic</text>
+  <text x="188" y="198" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#332f2a">constraints</text>
+  <rect x="422" y="118" width="220" height="112" rx="28" fill="#ffffff" stroke="#c6b9a7" stroke-width="4"/>
+  <text x="532" y="163" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#332f2a">Task &amp; structure</text>
+  <text x="532" y="198" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#332f2a">constraints</text>
+  <path d="M188 230 C188 295 290 300 320 340" fill="none" stroke="#2d5f8b" stroke-width="8" stroke-linecap="round"/>
+  <path d="M532 230 C532 295 430 300 400 340" fill="none" stroke="#2d5f8b" stroke-width="8" stroke-linecap="round"/>
+  <rect x="220" y="326" width="280" height="128" rx="36" fill="#eef4ff" stroke="#8eabd2" stroke-width="5"/>
+  <text x="360" y="378" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#234f78">Controlled</text>
+  <text x="360" y="420" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#234f78">generation</text>
+  <path d="M360 454 L360 520" fill="none" stroke="#2d5f8b" stroke-width="8" stroke-linecap="round"/>
+  <path d="M342 500 L360 526 L378 500" fill="none" stroke="#2d5f8b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="118" y="526" width="484" height="112" rx="30" fill="#ffffff" stroke="#c6b9a7" stroke-width="4"/>
+  <text x="360" y="572" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" fill="#332f2a">Human judgment · QA · statistics</text>
+  <text x="360" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" fill="#332f2a">robustness · reproducibility</text>
+</svg>
