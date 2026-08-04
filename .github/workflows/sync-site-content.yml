@@ -1,0 +1,95 @@
+name: Sync website content
+
+on:
+  push:
+    paths:
+      - ".github/workflows/sync-site-content.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Update News and ABOUND project
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path("index.html")
+          html = path.read_text(encoding="utf-8")
+
+          article_title = "Individual differences in speakers’ perceptions of psycholinguistic dimensions: Modeling idiom processing advantage in a phrase judgment task among L1 and L2 speakers"
+          news_item = (
+              '<li><div class="news-date">[2026]</div><div class="news-text">'
+              '<a href="https://doi.org/10.1017/S1366728926101606" target="_blank" rel="noopener">'
+              + article_title
+              + '.</a><div class="label">Individual-Difference Modeling</div></div></li>'
+          )
+
+          if article_title not in html:
+              pattern = r'(<ul class="news-list">\s*<li>.*?</li>)'
+              html, count = re.subn(pattern, lambda match: match.group(1) + news_item, html, count=1, flags=re.S)
+              if count != 1:
+                  raise RuntimeError("Could not locate the News list")
+
+          old_link = "https://github.com/Yanlu-Zhong/Contextual-LLM-Boundary-Evaluation"
+          new_link = "https://github.com/Yanlu-Zhong/constraint-aware-generation-LLM"
+          html = html.replace(old_link, new_link)
+
+          article_pattern = r'(<article class="project-item anchor" id="project-abound-affective-boundary-control">)(.*?)(</article>)'
+          match = re.search(article_pattern, html, flags=re.S)
+          if not match:
+              raise RuntimeError("Could not locate the ABOUND project card")
+
+          card = match.group(2)
+          card = re.sub(
+              r'<p class="one">.*?</p>',
+              '<p class="one">A constraint-aware framework for controlling when affective context may influence response content, tone, safety behavior, or refusal in language-model assistance.</p>',
+              card,
+              count=1,
+              flags=re.S,
+          )
+          card = re.sub(
+              r'<div class="abstract-text">.*?</div>',
+              '<div class="abstract-text">Affective context can improve the relevance and interpersonal appropriateness of language-model responses, but it should not influence every generation decision. This project studies affective influence as a constraint-control problem: a model must determine whether contextual affect may shape response content, tone only, neither, or a safety-sensitive refusal. The workflow separates policy selection from response realization and evaluates behavior across task quality, boundary retention, robustness, and human judgment. The public repository provides a publication-safe implementation using synthetic examples and generalized evaluation components, demonstrating reproducible data preparation, controlled generation, automated quality assurance, statistical analysis, and model diagnostics without disclosing manuscript-specific data or results.</div>',
+              card,
+              count=1,
+              flags=re.S,
+          )
+          card = card.replace(old_link, new_link)
+          html = html[:match.start()] + match.group(1) + card + match.group(3) + html[match.end():]
+
+          ml_marker = '<li><strong>Machine Learning for Language and Behavior</strong>'
+          ml_start = html.find(ml_marker)
+          if ml_start == -1:
+              raise RuntimeError("Could not locate the Machine Learning research category")
+          ml_end = html.find('</li>', ml_start)
+          ml_section = html[ml_start:ml_end]
+          abound_tag = '<a href="#project-abound-affective-boundary-control">ABOUND: Affective Boundary Control</a>'
+          if abound_tag not in ml_section:
+              tag_start = html.find('<div class="project-tags">', ml_start, ml_end)
+              if tag_start == -1:
+                  raise RuntimeError("Could not locate project tags in the Machine Learning category")
+              insert_at = tag_start + len('<div class="project-tags">')
+              html = html[:insert_at] + abound_tag + html[insert_at:]
+
+          path.write_text(html, encoding="utf-8")
+          PY
+
+      - name: Commit website update
+        run: |
+          if git diff --quiet; then
+            echo "No changes were needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Update recent publication and ABOUND project"
+          git push
