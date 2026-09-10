@@ -1,5 +1,20 @@
 [
   {
+    "title": "ContextShift",
+    "gif": "ContextShift",
+    "one": "Probing and intervening on contextual representations in language models.",
+    "abstract": "ContextShift is a publication-safe research project examining how context-sensitive information is encoded in language-model representations and whether targeted changes to those representations alter downstream behavior. The public workflow demonstrates controlled experimental design, representation geometry, held-out confirmation, subspace construction, donor-replacement and partial-ablation interventions, matched controls, and grouped bootstrap, randomization, and leave-one-family-out robustness analyses using synthetic data. Manuscript-specific stimuli, model identities, experimental scale, numerical findings, and inferential conclusions are withheld during peer review.",
+    "code": "https://github.com/Yanlu-Zhong/ContextShift",
+    "paper": "Ongoing manuscript (details withheld during peer review)",
+    "paper_url": "",
+    "tags": [
+      "LLM Behavior, Alignment, and Evaluation",
+      "Machine Learning for Language and Behavior"
+    ],
+    "slug": "contextshift",
+    "gif_path": "assets/gifs/contextshift.svg"
+  },
+  {
     "title": "ABOUND: Affective Boundary Control",
     "gif": "ABOUND Affective Boundary Control",
     "one": "A staged affect-boundary mediation framework for deciding when emotional context should shape content, tone, safety behavior, or refusal in LLM assistance.",

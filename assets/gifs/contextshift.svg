@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="title desc">
+  <title id="title">ContextShift research preview</title>
+  <desc id="desc">A publication-safe schematic of contextual representation probing and controlled activation intervention.</desc>
+  <rect width="720" height="720" rx="38" fill="#f8f7f2"/>
+  <rect x="34" y="34" width="652" height="652" rx="30" fill="#fffdf8" stroke="#ded5c8" stroke-width="2"/>
+
+  <text x="66" y="98" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#181818">ContextShift</text>
+  <text x="68" y="133" font-family="Inter, Arial, sans-serif" font-size="18" fill="#63605b">Contextual representation → controlled intervention</text>
+
+  <text x="68" y="186" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#7a4e2d">SYNTHETIC DEMO</text>
+
+  <rect x="68" y="215" width="154" height="82" rx="18" fill="#f1eadf" stroke="#ded5c8"/>
+  <text x="145" y="248" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#312d28">Controlled</text>
+  <text x="145" y="272" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#63605b">contexts</text>
+
+  <path d="M228 256 H280" stroke="#2b5d73" stroke-width="4" stroke-linecap="round"/>
+  <path d="M272 247 L284 256 L272 265" fill="none" stroke="#2b5d73" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="286" y="215" width="154" height="82" rx="18" fill="#edf3f5" stroke="#d5e0e4"/>
+  <text x="363" y="248" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#312d28">Latent</text>
+  <text x="363" y="272" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#63605b">geometry</text>
+
+  <path d="M446 256 H498" stroke="#2b5d73" stroke-width="4" stroke-linecap="round"/>
+  <path d="M490 247 L502 256 L490 265" fill="none" stroke="#2b5d73" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="504" y="215" width="148" height="82" rx="18" fill="#eeeaf5" stroke="#ded4eb"/>
+  <text x="578" y="248" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#312d28">Targeted</text>
+  <text x="578" y="272" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#63605b">intervention</text>
+
+  <line x1="86" y1="360" x2="634" y2="360" stroke="#e7dfd2" stroke-width="2"/>
+  <text x="68" y="405" font-family="Georgia, 'Times New Roman', serif" font-size="25" fill="#181818">Validation stack</text>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="15" fill="#3e3a36">
+    <rect x="68" y="433" width="180" height="58" rx="15" fill="#fbf6ee" stroke="#e9ddce"/>
+    <text x="158" y="468" text-anchor="middle">Held-out confirmation</text>
+
+    <rect x="270" y="433" width="180" height="58" rx="15" fill="#fbf6ee" stroke="#e9ddce"/>
+    <text x="360" y="468" text-anchor="middle">Matched controls</text>
+
+    <rect x="472" y="433" width="180" height="58" rx="15" fill="#fbf6ee" stroke="#e9ddce"/>
+    <text x="562" y="468" text-anchor="middle">Robust inference</text>
+  </g>
+
+  <g transform="translate(68 536)">
+    <text x="0" y="0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.4" fill="#6b5a93">PUBLIC RELEASE</text>
+    <rect x="0" y="24" width="584" height="84" rx="18" fill="#f6f3f9" stroke="#ded4eb"/>
+    <text x="22" y="57" font-family="Inter, Arial, sans-serif" font-size="15" fill="#3e3a36">Synthetic data • reproducible code • bootstrap • randomization • LOO</text>
+    <text x="22" y="84" font-family="Inter, Arial, sans-serif" font-size="14" fill="#63605b">Manuscript-specific stimuli, model details, and empirical results withheld.</text>
+  </g>
+</svg>
