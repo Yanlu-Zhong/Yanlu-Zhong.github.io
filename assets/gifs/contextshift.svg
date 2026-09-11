@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="title desc">
   <title id="title">ContextShift research preview</title>
-  <desc id="desc">A publication-safe schematic of contextual representation probing and controlled activation intervention.</desc>
+  <desc id="desc">A schematic of contextual representation probing and controlled activation intervention.</desc>
   <rect width="720" height="720" rx="38" fill="#f8f7f2"/>
   <rect x="34" y="34" width="652" height="652" rx="30" fill="#fffdf8" stroke="#ded5c8" stroke-width="2"/>
 
   <text x="66" y="98" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#181818">ContextShift</text>
   <text x="68" y="133" font-family="Inter, Arial, sans-serif" font-size="18" fill="#63605b">Contextual representation → controlled intervention</text>
 
-  <text x="68" y="186" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#7a4e2d">SYNTHETIC DEMO</text>
+  <text x="68" y="186" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#7a4e2d">MECHANISTIC WORKFLOW</text>
 
   <rect x="68" y="215" width="154" height="82" rx="18" fill="#f1eadf" stroke="#ded5c8"/>
   <text x="145" y="248" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#312d28">Controlled</text>
@@ -42,9 +42,9 @@
   </g>
 
   <g transform="translate(68 536)">
-    <text x="0" y="0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.4" fill="#6b5a93">PUBLIC RELEASE</text>
+    <text x="0" y="0" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.4" fill="#6b5a93">ANALYSIS PIPELINE</text>
     <rect x="0" y="24" width="584" height="84" rx="18" fill="#f6f3f9" stroke="#ded4eb"/>
-    <text x="22" y="57" font-family="Inter, Arial, sans-serif" font-size="15" fill="#3e3a36">Synthetic data • reproducible code • bootstrap • randomization • LOO</text>
-    <text x="22" y="84" font-family="Inter, Arial, sans-serif" font-size="14" fill="#63605b">Manuscript-specific stimuli, model details, and empirical results withheld.</text>
+    <text x="22" y="57" font-family="Inter, Arial, sans-serif" font-size="15" fill="#3e3a36">Representation geometry • interventions • bootstrap • randomization • LOO</text>
+    <text x="22" y="84" font-family="Inter, Arial, sans-serif" font-size="14" fill="#63605b">Controlled contrasts • held-out validation • matched controls</text>
   </g>
 </svg>
